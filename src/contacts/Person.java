@@ -1,15 +1,16 @@
 package contacts;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Person{
+public class Person implements Serializable {
 
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
 
-    public Person(String firstName, String lastName, Integer phoneNumber)
+    private Person(String firstName, String lastName)
     {
         if(firstName == null)
         {
@@ -19,35 +20,37 @@ public class Person{
         {
             throw new IllegalArgumentException("Invalid last-name");
         }
-        else if(phoneNumber == null) {
+        else
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+    }
+
+    public Person(String firstName, String lastName, Integer phoneNumber)
+    {
+        this(firstName, lastName);
+
+        if(phoneNumber == null) {
 
             throw new IllegalArgumentException("Invalid phone-number");
         }
         else {
-            this.firstName = firstName;
-            this.lastName = lastName;
+
             this.phoneNumber = getNumberFormat(phoneNumber);
         }
     }
 
     public Person(String firstName, String lastName, String email)
     {
-        if(firstName == null)
-        {
-            throw new IllegalArgumentException("Invalid first-name");
-        }
-        else if(lastName == null)
-        {
-            throw new IllegalArgumentException("Invalid last-name");
-        }
-        else if(email == null || !email.contains("@")) {
+        this(firstName, lastName);
+
+        if(email == null || !email.contains("@")) {
 
             throw new IllegalArgumentException("Invalid email");
         }
         else
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
             this.email = email;
         }
     }
@@ -56,17 +59,12 @@ public class Person{
     {
         this(firstName, lastName, email);
 
-        if(phoneNumber == null)
-        {
-            throw new IllegalArgumentException("Invalid phone-number");
-        }
-        else
-        {
-            this.phoneNumber = getNumberFormat(phoneNumber);
-        }
+        this.phoneNumber = getNumberFormat(phoneNumber);
     }
 
-    public String getNumberFormat(Integer phoneNumber)
+
+
+    private String getNumberFormat(Integer phoneNumber)
     {
         if(phoneNumber == null)
         {
