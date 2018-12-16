@@ -31,14 +31,7 @@ public class Person implements Serializable {
     {
         this(firstName, lastName);
 
-        if(phoneNumber == null) {
-
-            throw new IllegalArgumentException("Invalid phone-number");
-        }
-        else {
-
-            this.phoneNumber = getNumberFormat(phoneNumber);
-        }
+        this.phoneNumber = getNumberFormat(phoneNumber);
     }
 
     public Person(String firstName, String lastName, String email)

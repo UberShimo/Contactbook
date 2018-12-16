@@ -1,13 +1,12 @@
 package contacts;
 
-import java.io.Serializable;
 import java.util.Scanner;
 
-public class CreateContact implements Serializable {
+public class CreateContact{
 
     private static Scanner sc = new Scanner(System.in);
 
-    public static void createPerson()
+    public void createPerson()
     {
         Person person = null;
         String firstName;
@@ -18,7 +17,8 @@ public class CreateContact implements Serializable {
 
         System.out.println();
         System.out.println("Enter personal information!");
-        System.out.println("You must fill in first- and last name, plus phone number or email or both");
+        System.out.println("You must fill in first- and last name, plus email or phone number or both");
+        System.out.println("Press enter to skip email or phone number");
         System.out.println();
         System.out.println("First name:");
         firstName = sc.next();
@@ -55,7 +55,53 @@ public class CreateContact implements Serializable {
         System.out.println(person);
     }
 
-    private static Integer numberFormat(String inputNumber) {
+    public void createCompany()
+    {
+        Company company = null;
+        String companyName;
+        String email;
+        String inputNumber;
+        Integer phoneNumber = null;
+
+        System.out.println();
+        System.out.println("Enter company information!");
+        System.out.println("You must fill in company name, plus email or phone number or both");
+        System.out.println("Press enter to skip email or phone number");
+        System.out.println();
+        System.out.println("Company name:");
+        companyName = sc.next();
+        sc.nextLine();
+        System.out.println("Email, containing @:");
+        email = sc.nextLine();
+        System.out.println("Phone number, 10 digits:");
+        inputNumber = sc.nextLine();
+        if(!inputNumber.equals(""))
+            phoneNumber = numberFormat(inputNumber);
+
+
+        try {
+            if (phoneNumber != null) {
+                if (!email.equals("")) {
+                    company = new Company(companyName, phoneNumber, email);
+                } else {
+                    company = new Company(companyName, phoneNumber);
+                }
+            } else if (!email.equals("")) {
+                company = new Company(companyName, email);
+            }
+            else {
+                System.out.println("Missing info!");
+            }
+        }
+        catch(IllegalArgumentException iae)
+        {
+            System.out.println(iae.getMessage());
+        }
+
+        System.out.println(company);
+    }
+
+    private Integer numberFormat(String inputNumber) {
 
         Integer phoneNumber;
 
@@ -90,5 +136,4 @@ public class CreateContact implements Serializable {
 
         return phoneNumber;
     }
-
 }
