@@ -130,6 +130,8 @@ public class Menu {
                 }
             } catch (InputMismatchException e){
                 System.out.println("Error! Only numbers are valid as input!");
+                sc.next();
+                continue;
             }
         }
     }
