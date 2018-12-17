@@ -54,7 +54,7 @@ public class ListPerson implements Serializable {
             Person p = it.next();
             if (p.getFirstName().equalsIgnoreCase(name)) {
                 System.out.println("Person found");
-                System.out.println(i + ". " + p.toString());
+                System.out.println(i + 1 + ". " + p.toString());
                 i++;
             }
 
