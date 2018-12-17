@@ -43,6 +43,7 @@ public class ListCompany implements Serializable {
 
             Company p = it.next();
             if (p.getCompanyName().equalsIgnoreCase(name)) {
+                System.out.println("Company found");
                 System.out.println(i + ". " + p.toString());
                 i++;
             }
@@ -53,7 +54,7 @@ public class ListCompany implements Serializable {
     public void removeCompany(int position) {
 
         companyList.remove(position - 1);
-        System.out.println("Person removed from list");
+        System.out.println("Company removed from list");
         System.out.println();
     }
 }

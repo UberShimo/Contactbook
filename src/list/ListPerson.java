@@ -16,9 +16,9 @@ public class ListPerson implements Serializable {
     public void listPerson() {
 
         Iterator<Person> it = personList.iterator();
-        int i = 1;
+        int i = 0;
         while (it.hasNext()) {
-            System.out.println(i + ". " + it.next().toString());
+            System.out.println(i + 1 + ". " + it.next().toString());
             i++;
         }
     }
@@ -53,6 +53,7 @@ public class ListPerson implements Serializable {
 
             Person p = it.next();
             if (p.getFirstName().equalsIgnoreCase(name)) {
+                System.out.println("Person found");
                 System.out.println(i + ". " + p.toString());
                 i++;
             }
