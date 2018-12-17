@@ -1,9 +1,7 @@
 package user;
 
 import contacts.CreateContact;
-import list.Load;
-import list.Remove;
-import list.Save;
+import list.*;
 
 import java.util.Scanner;
 
@@ -11,6 +9,8 @@ public class Menu {
     Scanner sc = new Scanner(System.in);
     //initialized new scanner
     CreateContact c;
+    ListPerson listPerson;
+    ListCompany listCompany;
 
     public void start() {
 
@@ -32,7 +32,7 @@ public class Menu {
                         menuType = 2;
                         break;
                     case 3:
-                        //save
+                        //call for save method
                         System.out.println("Saved changes");
                         System.exit(0);
                         break;
@@ -47,8 +47,10 @@ public class Menu {
                         "5. Main menu\n6. Exit");
                 switch (sc.nextInt()){
                     case 1:
+                        listPerson.addPerson();
                         break;
                     case 2:
+
                         break;
                     case 3:
                         break;
