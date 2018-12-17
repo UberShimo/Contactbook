@@ -14,6 +14,10 @@ public class Menu {
 
     public void start() {
         //load method
+
+        Load load = new Load();
+
+        Load.load();
         while (true) {
             System.out.println("============ CONTACT BOOK ============");
             System.out.println("\nWelcome to the contactbook. Make a choice in the menu: \n");
