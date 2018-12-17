@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ListCompany implements Serializable {
 
-    ArrayList<Company> companyList = new ArrayList<Company>();
+    public ArrayList<Company> companyList = new ArrayList<Company>();
 
     public void listBusiness(){
 
