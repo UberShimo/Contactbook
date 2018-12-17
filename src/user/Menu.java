@@ -14,7 +14,7 @@ public class Menu {
 
     public void start() {
 
-        Load.load();
+        //Load.load();
         int menuType = 0;
 
         while (true) {
@@ -110,7 +110,7 @@ public class Menu {
                         }
                         break;
                     case 4:
-                        //remove
+                        //removePerson
                         break;
                     case 5:
                         //save

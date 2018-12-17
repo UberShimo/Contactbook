@@ -3,13 +3,14 @@ package list;
 import contacts.Company;
 import contacts.CreateContact;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class ListCompany {
+public class ListCompany implements Serializable {
 
-    static ArrayList<Company> companyList = new ArrayList<Company>();
+    ArrayList<Company> companyList = new ArrayList<Company>();
 
     public void listBusiness(){
 
@@ -47,5 +48,12 @@ public class ListCompany {
             }
 
         }
+    }
+
+    public void removeCompany(int position) {
+
+        companyList.remove(position - 1);
+        System.out.println("Person removed from list");
+        System.out.println();
     }
 }

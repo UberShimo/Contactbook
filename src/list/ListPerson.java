@@ -5,12 +5,13 @@ import contacts.Company;
 import contacts.CreateContact;
 import contacts.Person;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class ListPerson {
-    static ArrayList<Person> personList = new ArrayList<Person>();
+public class ListPerson implements Serializable {
+    ArrayList<Person> personList = new ArrayList<Person>();
 
     public void listPerson() {
 
@@ -23,20 +24,14 @@ public class ListPerson {
     }
 
 
-    public static void remove(ArrayList<Person> list, Person p) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(p)) {
-                list.remove(i);
-                break;
-            }
-        }
+    public void removePerson(int position) {
+
+        personList.remove(position - 1);
+        System.out.println("Person removed from list");
+        System.out.println();
     }
 
-    public static void remove(ArrayList<Person> list, int i) {
-        list.remove(i);
-    }
-
-    public static void addPerson(){
+    public void addPerson(){
 
         Person person;
 
