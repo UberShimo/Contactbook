@@ -21,7 +21,7 @@ public class Menu {
             if (menuType == 0) {
                 System.out.println("============ CONTACT BOOK ============");
                 System.out.println("\nWelcome to the contact book. Make a choice in the menu: \n");
-                System.out.println("1. Person menu\n2. Company menu\n");
+                System.out.println("1. Person menu\n2. Company menu\n3. Exit");
                 //printing the menu options
                 switch (sc.nextInt()) {
                     //using a scanner to select options in menu and then using the switch
@@ -31,6 +31,11 @@ public class Menu {
                     case 2:
                         menuType = 2;
                         break;
+                    case 3:
+                        //save
+                        System.out.println("Saved changes");
+                        System.exit(0);
+                        break;
                     default:
                         System.out.println("Error! Make your choice between 1 or 2!");
                         break;
@@ -39,7 +44,7 @@ public class Menu {
                 System.out.println("============ PERSON MENU ============");
                 System.out.println("\nMake your choice in the menu: ");
                 System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
-                        "5. Exit");
+                        "5. Main menu\n6. Exit");
                 switch (sc.nextInt()){
                     case 1:
                         break;
@@ -50,6 +55,9 @@ public class Menu {
                     case 4:
                         break;
                     case 5:
+                        menuType = 0;
+                        break;
+                    case 6:
                         //save
                         System.out.println("Saved changes");
                         System.exit(0);
@@ -61,7 +69,7 @@ public class Menu {
                 System.out.println("============ COMPANY MENU ============");
                 System.out.println("\nMake your choice in the menu: ");
                 System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
-                        "5. Exit");
+                        "5. Main menu\n6. Exit");
                 switch (sc.nextInt()) {
                     case 1:
                         break;
@@ -72,6 +80,9 @@ public class Menu {
                     case 4:
                         break;
                     case 5:
+                        menuType = 0;
+                        break;
+                    case 6:
                         //save
                         System.out.println("Saved changes");
                         System.exit(0);
