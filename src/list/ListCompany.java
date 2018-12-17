@@ -12,12 +12,20 @@ public class ListCompany implements Serializable {
 
     public ArrayList<Company> companyList = new ArrayList<Company>();
 
-    public void listBusiness(){
+    public ArrayList<Company> getCompanyList() {
+        return companyList;
+    }
+
+    public void setCompanyList(ArrayList<Company> companyList) {
+        this.companyList = companyList;
+    }
+
+    public void listCompany(){
 
         Iterator<Company> itc = companyList.iterator();
-        int i = 1;
+        int i = 0;
         while (itc.hasNext()){
-            System.out.println(i + ". " + itc.next().toString());
+            System.out.println(i + 1 + ". " + itc.next().toString());
             i++;
         }
     }
@@ -44,7 +52,7 @@ public class ListCompany implements Serializable {
             Company p = it.next();
             if (p.getCompanyName().equalsIgnoreCase(name)) {
                 System.out.println("Company found");
-                System.out.println(i + ". " + p.toString());
+                System.out.println(i + 1 + ". " + p.toString());
                 i++;
             }
 
