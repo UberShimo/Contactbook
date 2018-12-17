@@ -22,9 +22,8 @@ public class ListPerson {
     }
 
 
-
-    public static void remove(ArrayList<Person> list, Person p){
-        for(int i = 0; i < list.size(); i++) {
+    public static void remove(ArrayList<Person> list, Person p) {
+        for (int i = 0; i < list.size(); i++) {
             if (list.get(i).equals(p)) {
                 list.remove(i);
                 break;
@@ -32,51 +31,32 @@ public class ListPerson {
         }
     }
 
-    public static void remove(ArrayList<Person> list, int i){
+    public static void remove(ArrayList<Person> list, int i) {
         list.remove(i);
     }
 
-    public static void addPerson(ArrayList<Person> list, Person p){
+    public static void addPerson(ArrayList<Person> list, Person p) {
         list.add(p);
     }
 
-    public void find(){
+    public void findPerson() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Vill du söka på 1. Person eller 2. Företag?");
         int val = sc.nextInt();
+        Iterator<Person> it = personList.iterator();
+        System.out.println("Input name for search: ");
+        String name = sc.next();
+        int i = 0;
 
-        if (val == 1) {
-            Iterator<Person> it = personList.iterator();
-            System.out.println("Skriv in namn för sökning: ");
-            String name = sc.next();
-            int i = 0;
+        while (it.hasNext()) {
 
-            while (it.hasNext()){
-
-                Person p = it.next();
-                if (p.getFirstName().equalsIgnoreCase(name)){
-                    System.out.println(i + ". "+ p.toString());
-                    i++;
-                }
+            Person p = it.next();
+            if (p.getFirstName().equalsIgnoreCase(name)) {
+                System.out.println(i + ". " + p.toString());
+                i++;
             }
-        }
-        if (val == 2) {
-            Iterator<Company> it = list.businessList.iterator();
-            System.out.println("Skriv in namn för sökning: ");
-            String name = sc.next();
-            int i = 0;
 
-            while (it.hasNext()){
-
-                Company b = it.next();
-                if (b.getCompanyName().equalsIgnoreCase(name)){
-                    System.out.println(i + ". "+ b.toString());
-                    i++;
-                }
-            }
         }
-        else find();
     }
 }
 
