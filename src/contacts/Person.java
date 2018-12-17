@@ -3,6 +3,7 @@ package contacts;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
+//The class Person is for creating Person objects
 public class Person implements Serializable {
 
     private String firstName;
@@ -10,6 +11,7 @@ public class Person implements Serializable {
     private String phoneNumber;
     private String email;
 
+    //Private constructor for checking first and last name
     private Person(String firstName, String lastName)
     {
         if(firstName == null)
@@ -27,6 +29,7 @@ public class Person implements Serializable {
         }
     }
 
+    //Constructor for creating objects
     public Person(String firstName, String lastName, Integer phoneNumber)
     {
         this(firstName, lastName);
@@ -104,7 +107,7 @@ public class Person implements Serializable {
     @Override
     public String toString() {
 
-        return String.format("First-name: %s.  Last-name: %s.  Phone-number: %s.  Email: %s.",
+        return String.format("First-name: %s.  Last-name: %s.  Email: %s.  Phone-number: %s.  ",
                 firstName, lastName, phoneNumber, email);
     }
 }

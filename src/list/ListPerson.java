@@ -2,6 +2,7 @@ package list;
 
 
 import contacts.Company;
+import contacts.CreateContact;
 import contacts.Person;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class ListPerson {
-    ArrayList<Person> personList = new ArrayList<Person>();
+    static ArrayList<Person> personList = new ArrayList<Person>();
 
     public void listPerson() {
 
@@ -35,8 +36,13 @@ public class ListPerson {
         list.remove(i);
     }
 
-    public static void addPerson(ArrayList<Person> list, Person p) {
-        list.add(p);
+    public static void addPerson(){
+
+        Person person;
+
+        person = CreateContact.createPerson();
+
+        personList.add(person);
     }
 
     public void findPerson() {

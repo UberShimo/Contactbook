@@ -6,7 +6,7 @@ public class CreateContact{
 
     private static Scanner sc = new Scanner(System.in);
 
-    public void createPerson()
+    public static Person createPerson()
     {
         Person person = null;
         String firstName;
@@ -17,7 +17,7 @@ public class CreateContact{
 
         System.out.println();
         System.out.println("Enter personal information!");
-        System.out.println("You must fill in first- and last name, plus email or phone number or both");
+        System.out.println("You must fill in first- and last name and at least either email or phone number");
         System.out.println("Press enter to skip email or phone number");
         System.out.println();
         System.out.println("First name:");
@@ -53,9 +53,10 @@ public class CreateContact{
         }
 
         System.out.println(person);
+        return person;
     }
 
-    public void createCompany()
+    public static Company createCompany()
     {
         Company company = null;
         String companyName;
@@ -65,7 +66,7 @@ public class CreateContact{
 
         System.out.println();
         System.out.println("Enter company information!");
-        System.out.println("You must fill in company name, plus email or phone number or both");
+        System.out.println("You must fill in company name and at least either email or phone number");
         System.out.println("Press enter to skip email or phone number");
         System.out.println();
         System.out.println("Company name:");
@@ -99,9 +100,10 @@ public class CreateContact{
         }
 
         System.out.println(company);
+        return company;
     }
 
-    private Integer numberFormat(String inputNumber) {
+    private static Integer numberFormat(String inputNumber) {
 
         Integer phoneNumber;
 

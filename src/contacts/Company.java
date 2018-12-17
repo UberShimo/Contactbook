@@ -89,7 +89,7 @@ public class Company implements Serializable {
     @Override
     public String toString() {
 
-        return String.format("Company-name: %s.  Phone-number: %s.  Email: %s.",
+        return String.format("Company-name: %s.  Email: %s.  Phone-number: %s.  ",
                 companyName, phoneNumber, email);
     }
 }
