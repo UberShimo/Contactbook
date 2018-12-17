@@ -3,6 +3,7 @@ package user;
 import contacts.CreateContact;
 import list.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
@@ -14,7 +15,9 @@ public class Menu {
 
     public void start() {
 
-        //Load.load();
+        listPerson.setPersonList(Load.loadPersons());
+        listCompany.setCompanyList(Load.loadCompanies());
+
         int menuType = 0;
 
         while (true) {
@@ -32,7 +35,16 @@ public class Menu {
                         menuType = 2;
                         break;
                     case 3:
-                        //call for save method
+                        try {
+                            Save.savePersons(listPerson.getPersonList());
+                        } catch (IOException e){
+                            System.out.println("Error saving");
+                        }
+                        try {
+                            Save.saveCompanies(listCompany.getCompanyList());
+                        } catch (IOException e){
+                            System.out.println("Error saving");
+                        }
                         System.out.println("Saved changes");
                         System.exit(0);
                         break;
@@ -50,11 +62,16 @@ public class Menu {
                         listPerson.addPerson();
                         break;
                     case 2:
-
+                        listPerson.listPerson();
+                        System.out.println("Choose which index you want to remove: ");
+                        int pos = sc.nextInt();
+                        listPerson.removePerson(pos);
                         break;
                     case 3:
+                        listPerson.findPerson();
                         break;
                     case 4:
+                        listPerson.listPerson();
                         break;
                     case 5:
                         menuType = 0;
@@ -92,38 +109,9 @@ public class Menu {
                     default:
                         break;
                 }
-
             }
-
-
-
-
-                    /*case 3:
-                        System.out.println("Make your choice in the menu: ");
-                        System.out.println("1. Search for a person.\n2. Search for a organisation or a company.");
-                        if (sc.nextInt() == 1) {
-                            //if the value is 1 do this
-                            System.out.println("Enter a name or a phone number:");
-                            //kalla på sökmetod
-                        } else if (sc.nextInt() == 2) {
-                            //if the value is 2 do this
-                            System.out.println("Enter a name or a phone number:");
-                            //kalla på sökmetod
-                        }
-                        break;
-                    case 4:
-                        //removePerson
-                        break;
-                    case 5:
-                        //save
-                        System.out.println("Saved changes");
-                        System.exit(0);
-                    default:
-
-                        break;
-                }*/
-
 
         }
     }
 }
+//lägg spara i slutet av loopen istället för att upprepa
