@@ -1,6 +1,7 @@
 package list;
 
 
+import contacts.ContactChanger;
 import contacts.CreateContact;
 import contacts.Person;
 
@@ -11,8 +12,8 @@ import java.util.Scanner;
 
 public class ListPerson implements Serializable {
 
-    Scanner sc = new Scanner(System.in);
-    ArrayList<Person> personList = new ArrayList<Person>();
+    private Scanner sc = new Scanner(System.in);
+    private ArrayList<Person> personList = new ArrayList<>();
 
     public ArrayList<Person> getPersonList() {
         return personList;
@@ -66,9 +67,10 @@ public class ListPerson implements Serializable {
         System.out.println();
     }
 
-    public void changePerson(int position)
+    public void changePersonInfo(int position)
     {
-
+        Person person = personList.get(position - 1);
+        ContactChanger.changePersonInfo(person);
     }
 }
 

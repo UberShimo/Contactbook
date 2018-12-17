@@ -1,6 +1,7 @@
 package list;
 
 import contacts.Company;
+import contacts.ContactChanger;
 import contacts.CreateContact;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class ListCompany implements Serializable {
 
-    public ArrayList<Company> companyList = new ArrayList<Company>();
+    private ArrayList<Company> companyList = new ArrayList<>();
 
     public ArrayList<Company> getCompanyList() {
         return companyList;
@@ -67,6 +68,7 @@ public class ListCompany implements Serializable {
 
     public void changeCompanyInfo(int position)
     {
-
+        Company company = companyList.get(position - 1);
+        ContactChanger.changeCompanyInfo(company);
     }
 }

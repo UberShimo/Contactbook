@@ -50,7 +50,7 @@ public class Company implements Contact, Serializable {
     }
 
 
-    public String getNumberFormat(Integer phoneNumber)
+    private String getNumberFormat(Integer phoneNumber)
     {
         if(phoneNumber == null)
         {

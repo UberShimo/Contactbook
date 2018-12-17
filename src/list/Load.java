@@ -31,7 +31,7 @@ public class Load {
         if( list != null) {
             return list;
         }
-        return new ArrayList<Person>();//Return an empty list.
+        return new ArrayList<>();//Return an empty list.
     }
 
     public static ArrayList<Company> loadCompanies(){
@@ -58,6 +58,6 @@ public class Load {
         if( list != null) {
             return list;
         }
-        return new ArrayList<Company>();//Return an empty list.
+        return new ArrayList<>();//Return an empty list.
     }
 }

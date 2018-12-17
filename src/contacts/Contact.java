@@ -2,15 +2,15 @@ package contacts;
 
 public interface Contact {
 
-    public String getName();
+    String getName();
 
-    public void setName(String firstName);
+    void setName(String firstName);
 
-    public String getPhoneNumber();
+    String getPhoneNumber();
 
-    public void setPhoneNumber(String phoneNumber);
+    void setPhoneNumber(String phoneNumber);
 
-    public String getEmail();
+    String getEmail();
 
-    public void setEmail(String email);
+    void setEmail(String email);
 }

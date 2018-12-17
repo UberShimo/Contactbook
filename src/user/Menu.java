@@ -1,26 +1,24 @@
 package user;
 
-import contacts.ContactChanger;
-import contacts.CreateContact;
 import list.*;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    static Scanner sc = new Scanner(System.in);
+
+    private static Scanner sc = new Scanner(System.in);
     //initialized new scanner
-    static ListPerson listPerson;
-    static ListCompany listCompany;
+    private static ListPerson listPerson = new ListPerson();
+    private static ListCompany listCompany = new ListCompany();
 
-    public static void start() {
+    public void start() {
 
+        int menuType = 0;
         int pos;
 
         listPerson.setPersonList(Load.loadPersons());
         listCompany.setCompanyList(Load.loadCompanies());
-
-        int menuType = 0;
 
         while (true) {
             if (menuType == 0) {
@@ -41,7 +39,7 @@ public class Menu {
                         System.exit(0);
                         break;
                     default:
-                        System.out.println("Error! Make your choice between 1 or 2!");
+                        System.out.println("Error! Make your choice between 1, 2 or 3!");
                         break;
                 }
 
@@ -49,58 +47,68 @@ public class Menu {
                 System.out.println("============ PERSON MENU ============");
                 System.out.println("\nMake your choice in the menu: ");
                 System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
-                        "5. Main menu\n6. Exit");
+                        "5. Change contact-info\n6. Main menu");
                 switch (sc.nextInt()){
                     case 1:
                         listPerson.addPerson();
                         break;
                     case 2:
-                        listPerson.listPerson();
                         System.out.println("Choose which index you want to remove: ");
+                        listPerson.listPerson();
                         pos = sc.nextInt();
                         listPerson.removePerson(pos);
                         break;
                     case 3:
                         listPerson.findPerson();
                         break;
-                    /*case 4:
+                    case 4:
                         listPerson.listPerson();
-                        System.out.println("Choose which index you want to remove: ");
-                        pos = sc.nextInt();
-                        ContactChanger.changePersonInfo(pos);
-                        break;*/
+                        break;
                     case 5:
-                        menuType = 0;
+                        System.out.println("Choose which index you want to change: ");
+                        listPerson.listPerson();
+                        pos = sc.nextInt();
+                        listPerson.changePersonInfo(pos);
                         break;
                     case 6:
-
+                        menuType = 0;
                         break;
                     default:
+                        System.out.println("Error! Only choose an option from the menu");
                         break;
                 }
-            } else if ( menuType == 2) {
+            } else {
                 System.out.println("============ COMPANY MENU ============");
                 System.out.println("\nMake your choice in the menu: ");
                 System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
-                        "5. Main menu\n6. Exit");
+                        "5. Change contact-info\n6. Main menu");
                 switch (sc.nextInt()) {
                     case 1:
+                        listCompany.addCompany();
                         break;
                     case 2:
+                        System.out.println("Choose which index you want to remove: ");
+                        listCompany.listCompany();
+                        pos = sc.nextInt();
+                        listCompany.removeCompany(pos);
                         break;
                     case 3:
+                        listCompany.findCompany();
                         break;
                     case 4:
+                        listCompany.listCompany();
                         break;
                     case 5:
-                        menuType = 0;
+                        System.out.println("Choose which index you want to change: ");
+                        listCompany.listCompany();
+                        pos = sc.nextInt();
+                        listCompany.changeCompanyInfo(pos);
                         break;
                     case 6:
-                        //save
-                        System.out.println("Saved changes");
-                        System.exit(0);
+                        menuType = 0;
                         break;
                     default:
+                        System.out.println("Error! Only choose an option from the menu");
                         break;
                 }
             }
@@ -122,4 +130,3 @@ public class Menu {
         System.out.println("Saved changes");
     }
 }
-//lägg spara i slutet av loopen istället för att upprepa

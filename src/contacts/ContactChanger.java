@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ContactChanger {
 
-    static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 
     public static void changePersonInfo(Person person)
     {
@@ -124,7 +124,7 @@ public class ContactChanger {
 
         if(lastName != null && !lastName.equals("")) {
 
-            person.setName(lastName);
+            person.setLastName(lastName);
 
             System.out.println("Last name changed");
             System.out.println();
