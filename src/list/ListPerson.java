@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class ListPerson implements Serializable {
-    ArrayList<Person> personList = new ArrayList<Person>();
+    public ArrayList<Person> personList = new ArrayList<Person>();
 
     public void listPerson() {
 
