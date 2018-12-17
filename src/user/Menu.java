@@ -13,53 +13,104 @@ public class Menu {
     CreateContact c;
 
     public void start() {
-        //load method
-
-        Load load = new Load();
 
         Load.load();
-        while (true) {
-            System.out.println("============ CONTACT BOOK ============");
-            System.out.println("\nWelcome to the contactbook. Make a choice in the menu: \n");
-            System.out.print("1. Add a person\n2. Add an organisation or company\n3. Search in the contact book\n4. Remove from contact book\n" +
-                    "5. Exit");
-            //printing the menu options
-            switch (sc.nextInt()) {
-                //using a scanner to select options in menu and then using the switch
-                case 1:
-                    c.createPerson();
-                    //calls for the create person method
-                    break;
-                case 2:
-                    c.createCompany();
-                    //calls for the create company method
-                    break;
-                case 3:
-                    System.out.println("Make your choice in the menu: ");
-                    System.out.println("1. Search for a person.\n2. Search for a organisation or a company.");
-                    if (sc.nextInt() == 1){
-                        //if the value is 1 do this
-                        System.out.println("Enter a name or a phone number:");
-                        //kalla på sökmetod
-                    } else if (sc.nextInt() == 2){
-                        //if the value is 2 do this
-                        System.out.println("Enter a name or a phone number:");
-                        //kalla på sökmetod
-                    }
-                    break;
-                case 4:
-                    //remove
-                    break;
-                case 5:
-                    //save
-                    System.out.println("Saved changes");
-                    System.exit(0);
-                default:
+        int menuType = 0;
 
-                    break;
+        while (true) {
+            if (menuType == 0) {
+                System.out.println("============ CONTACT BOOK ============");
+                System.out.println("\nWelcome to the contact book. Make a choice in the menu: \n");
+                System.out.println("1. Person menu\n2. Company menu\n");
+                //printing the menu options
+                switch (sc.nextInt()) {
+                    //using a scanner to select options in menu and then using the switch
+                    case 1:
+                        menuType = 1;
+                        break;
+                    case 2:
+                        menuType = 2;
+                        break;
+                    default:
+                        System.out.println("Error! Make your choice between 1 or 2!");
+                        break;
+                }
+            } else if ( menuType == 1 ){
+                System.out.println("============ PERSON MENU ============");
+                System.out.println("\nMake your choice in the menu: ");
+                System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
+                        "5. Exit");
+                switch (sc.nextInt()){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        //save
+                        System.out.println("Saved changes");
+                        System.exit(0);
+                        break;
+                    default:
+                        break;
+                }
+            } else if ( menuType == 2) {
+                System.out.println("============ COMPANY MENU ============");
+                System.out.println("\nMake your choice in the menu: ");
+                System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
+                        "5. Exit");
+                switch (sc.nextInt()) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        //save
+                        System.out.println("Saved changes");
+                        System.exit(0);
+                        break;
+                    default:
+                        break;
+                }
+
             }
+
+
+
+
+                    /*case 3:
+                        System.out.println("Make your choice in the menu: ");
+                        System.out.println("1. Search for a person.\n2. Search for a organisation or a company.");
+                        if (sc.nextInt() == 1) {
+                            //if the value is 1 do this
+                            System.out.println("Enter a name or a phone number:");
+                            //kalla på sökmetod
+                        } else if (sc.nextInt() == 2) {
+                            //if the value is 2 do this
+                            System.out.println("Enter a name or a phone number:");
+                            //kalla på sökmetod
+                        }
+                        break;
+                    case 4:
+                        //remove
+                        break;
+                    case 5:
+                        //save
+                        System.out.println("Saved changes");
+                        System.exit(0);
+                    default:
+
+                        break;
+                }*/
+
+
         }
     }
-
-
 }
