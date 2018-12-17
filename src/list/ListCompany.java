@@ -12,6 +12,14 @@ public class ListCompany implements Serializable {
 
     ArrayList<Company> companyList = new ArrayList<Company>();
 
+    public ArrayList<Company> getCompanyList() {
+        return companyList;
+    }
+
+    public void setCompanyList(ArrayList<Company> companyList) {
+        this.companyList = companyList;
+    }
+
     public void listCompany(){
 
         Iterator<Company> itc = companyList.iterator();

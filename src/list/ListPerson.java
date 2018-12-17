@@ -11,7 +11,16 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class ListPerson implements Serializable {
+
     ArrayList<Person> personList = new ArrayList<Person>();
+
+    public ArrayList<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(ArrayList<Person> personList) {
+        this.personList = personList;
+    }
 
     public void listPerson() {
 
@@ -60,5 +69,7 @@ public class ListPerson implements Serializable {
 
         }
     }
+
+
 }
 
