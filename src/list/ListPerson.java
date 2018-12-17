@@ -1,7 +1,6 @@
 package list;
 
 
-import contacts.Company;
 import contacts.CreateContact;
 import contacts.Person;
 
@@ -12,6 +11,7 @@ import java.util.Scanner;
 
 public class ListPerson implements Serializable {
 
+    Scanner sc = new Scanner(System.in);
     ArrayList<Person> personList = new ArrayList<Person>();
 
     public ArrayList<Person> getPersonList() {
@@ -32,14 +32,6 @@ public class ListPerson implements Serializable {
         }
     }
 
-
-    public void removePerson(int position) {
-
-        personList.remove(position - 1);
-        System.out.println("Person removed from list");
-        System.out.println();
-    }
-
     public void addPerson(){
 
         Person person;
@@ -51,8 +43,6 @@ public class ListPerson implements Serializable {
 
     public void findPerson() {
 
-        Scanner sc = new Scanner(System.in);
-        int val = sc.nextInt();
         Iterator<Person> it = personList.iterator();
         System.out.println("Input name for search: ");
         String name = sc.next();
@@ -61,15 +51,24 @@ public class ListPerson implements Serializable {
         while (it.hasNext()) {
 
             Person p = it.next();
-            if (p.getFirstName().equalsIgnoreCase(name)) {
+            if (p.getName().equalsIgnoreCase(name)) {
                 System.out.println("Person found");
                 System.out.println(i + 1 + ". " + p.toString());
                 i++;
             }
-
         }
     }
 
+    public void removePerson(int position) {
 
+        personList.remove(position - 1);
+        System.out.println("Person removed from list");
+        System.out.println();
+    }
+
+    public void changePerson(int position)
+    {
+
+    }
 }
 

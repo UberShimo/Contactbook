@@ -1,5 +1,6 @@
 package user;
 
+import contacts.ContactChanger;
 import contacts.CreateContact;
 import list.*;
 
@@ -7,13 +8,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     //initialized new scanner
-    CreateContact c;
-    ListPerson listPerson;
-    ListCompany listCompany;
+    static ListPerson listPerson;
+    static ListCompany listCompany;
 
-    public void start() {
+    public static void start() {
+
+        int pos;
 
         listPerson.setPersonList(Load.loadPersons());
         listCompany.setCompanyList(Load.loadCompanies());
@@ -35,23 +37,14 @@ public class Menu {
                         menuType = 2;
                         break;
                     case 3:
-                        try {
-                            Save.savePersons(listPerson.getPersonList());
-                        } catch (IOException e){
-                            System.out.println("Error saving");
-                        }
-                        try {
-                            Save.saveCompanies(listCompany.getCompanyList());
-                        } catch (IOException e){
-                            System.out.println("Error saving");
-                        }
-                        System.out.println("Saved changes");
+                        saveLists();
                         System.exit(0);
                         break;
                     default:
                         System.out.println("Error! Make your choice between 1 or 2!");
                         break;
                 }
+
             } else if ( menuType == 1 ){
                 System.out.println("============ PERSON MENU ============");
                 System.out.println("\nMake your choice in the menu: ");
@@ -64,22 +57,23 @@ public class Menu {
                     case 2:
                         listPerson.listPerson();
                         System.out.println("Choose which index you want to remove: ");
-                        int pos = sc.nextInt();
+                        pos = sc.nextInt();
                         listPerson.removePerson(pos);
                         break;
                     case 3:
                         listPerson.findPerson();
                         break;
-                    case 4:
+                    /*case 4:
                         listPerson.listPerson();
-                        break;
+                        System.out.println("Choose which index you want to remove: ");
+                        pos = sc.nextInt();
+                        ContactChanger.changePersonInfo(pos);
+                        break;*/
                     case 5:
                         menuType = 0;
                         break;
                     case 6:
-                        //save
-                        System.out.println("Saved changes");
-                        System.exit(0);
+
                         break;
                     default:
                         break;
@@ -110,8 +104,22 @@ public class Menu {
                         break;
                 }
             }
-
         }
+    }
+
+    private static void saveLists()
+    {
+        try {
+            Save.savePersons(listPerson.getPersonList());
+        } catch (IOException e){
+            System.out.println("Error saving");
+        }
+        try {
+            Save.saveCompanies(listCompany.getCompanyList());
+        } catch (IOException e){
+            System.out.println("Error saving");
+        }
+        System.out.println("Saved changes");
     }
 }
 //lägg spara i slutet av loopen istället för att upprepa

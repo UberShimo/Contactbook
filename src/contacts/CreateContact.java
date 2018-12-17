@@ -30,7 +30,7 @@ public class CreateContact{
         System.out.println("Phone number, 10 digits:");
         inputNumber = sc.nextLine();
         if(!inputNumber.equals(""))
-            phoneNumber = numberFormat(inputNumber);
+            phoneNumber = parseNumber(inputNumber);
 
 
         try {
@@ -77,7 +77,7 @@ public class CreateContact{
         System.out.println("Phone number, 10 digits:");
         inputNumber = sc.nextLine();
         if(!inputNumber.equals(""))
-            phoneNumber = numberFormat(inputNumber);
+            phoneNumber = parseNumber(inputNumber);
 
 
         try {
@@ -103,7 +103,7 @@ public class CreateContact{
         return company;
     }
 
-    private static Integer numberFormat(String inputNumber) {
+    private static Integer parseNumber(String inputNumber) {
 
         Integer phoneNumber;
 

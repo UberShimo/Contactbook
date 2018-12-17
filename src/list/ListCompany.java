@@ -41,7 +41,7 @@ public class ListCompany implements Serializable {
 
     public void findCompany() {
         Scanner sc = new Scanner(System.in);
-        int val = sc.nextInt();
+
         Iterator<Company> it = companyList.iterator();
         System.out.println("Input name for search: ");
         String name = sc.next();
@@ -50,12 +50,11 @@ public class ListCompany implements Serializable {
         while (it.hasNext()) {
 
             Company p = it.next();
-            if (p.getCompanyName().equalsIgnoreCase(name)) {
+            if (p.getName().equalsIgnoreCase(name)) {
                 System.out.println("Company found");
                 System.out.println(i + 1 + ". " + p.toString());
                 i++;
             }
-
         }
     }
 
@@ -64,5 +63,10 @@ public class ListCompany implements Serializable {
         companyList.remove(position - 1);
         System.out.println("Company removed from list");
         System.out.println();
+    }
+
+    public void changeCompanyInfo(int position)
+    {
+
     }
 }

@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 
 //The class Person is for creating Person objects
-public class Person implements Serializable {
+public class Person implements Contact, Serializable {
 
     private String firstName;
     private String lastName;
-    private String phoneNumber;
     private String email;
+    private String phoneNumber;
 
     //Private constructor for checking first and last name
     private Person(String firstName, String lastName)
@@ -72,11 +72,11 @@ public class Person implements Serializable {
         }
     }
 
-    public String getFirstName() {
+    public String getName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -108,7 +108,7 @@ public class Person implements Serializable {
     public String toString() {
 
         return String.format("First-name: %s.  Last-name: %s.  Email: %s.  Phone-number: %s.  ",
-                firstName, lastName, phoneNumber, email);
+                firstName, lastName, email, phoneNumber);
     }
 }
 

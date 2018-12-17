@@ -3,11 +3,11 @@ package contacts;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Company implements Serializable {
+public class Company implements Contact, Serializable {
 
     private String companyName;
-    private String phoneNumber;
     private String email;
+    private String phoneNumber;
 
     private Company(String companyName) {
 
@@ -62,11 +62,11 @@ public class Company implements Serializable {
         }
     }
 
-    public String getCompanyName() {
+    public String getName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
+    public void setName(String companyName) {
         this.companyName = companyName;
     }
 
@@ -90,6 +90,6 @@ public class Company implements Serializable {
     public String toString() {
 
         return String.format("Company-name: %s.  Email: %s.  Phone-number: %s.  ",
-                companyName, phoneNumber, email);
+                companyName, email, phoneNumber);
     }
 }

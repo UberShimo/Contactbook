@@ -22,7 +22,7 @@ public class Search {
             while (it.hasNext()){
 
                 Person p = it.next();
-                if (p.getFirstName().equalsIgnoreCase(name)){
+                if (p.getName().equalsIgnoreCase(name)){
                     System.out.println(i + ". "+ p.toString());
                     i++;
                 }
@@ -37,7 +37,7 @@ public class Search {
             while (it.hasNext()){
 
                 Company b = it.next();
-                if (b.getCompanyName().equalsIgnoreCase(name)){
+                if (b.getName().equalsIgnoreCase(name)){
                     System.out.println(i + ". "+ b.toString());
                     i++;
                 }
