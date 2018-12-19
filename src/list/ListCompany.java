@@ -23,11 +23,11 @@ public class ListCompany implements Serializable {
 
     public void listCompany(){
 
-        Iterator<Company> itc = companyList.iterator();
-        int i = 0;
-        while (itc.hasNext()){
-            System.out.println(i + 1 + ". " + itc.next().toString());
-            i++;
+        Iterator<Company> itc = companyList.iterator();//Creates itherator for companyList.
+        int i = 0;// Int variable for the index.
+        while (itc.hasNext()){//While the itherator (list) has another object do.
+            System.out.println(i + 1 + ". " + itc.next().toString());//Prints the index i and the toString for the person.
+            i++;//Adds 1 to the index indicator.
         }
     }
 
@@ -41,20 +41,20 @@ public class ListCompany implements Serializable {
     }
 
     public void findCompany() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);//Initiation for scanner called sc.
 
-        Iterator<Company> it = companyList.iterator();
-        System.out.println("Input name for search: ");
-        String name = sc.next();
-        int i = 0;
+        Iterator<Company> it = companyList.iterator(); // Creates an iterator for companyList
+        System.out.println("Input name for search: "); //Prints "Input name for search" to console
+        String name = sc.next();//User input using scanner for the name.
+        int i = 0;//An int to show the index of the object
 
-        while (it.hasNext()) {
+        while (it.hasNext()) {//While the list has another object do.
 
             Company p = it.next();
-            if (p.getName().equalsIgnoreCase(name)) {
-                System.out.println("Company found");
-                System.out.println(i + 1 + ". " + p.toString());
-                i++;
+            if (p.getName().equalsIgnoreCase(name)) {//If the name in the list is the same as searched do.
+                System.out.println("Company found"); //Prints "Company found" to console.
+                System.out.println(i + 1 + ". " + p.toString());//Prints the index of the person found and the to string for the person.
+                i++;//Adds 1 to the index i.
             }
         }
     }

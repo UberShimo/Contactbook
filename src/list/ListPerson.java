@@ -25,11 +25,11 @@ public class ListPerson implements Serializable {
 
     public void listPerson() {
 
-        Iterator<Person> it = personList.iterator();
-        int i = 0;
-        while (it.hasNext()) {
-            System.out.println(i + 1 + ". " + it.next().toString());
-            i++;
+        Iterator<Person> it = personList.iterator();//Creates itherator for personList.
+        int i = 0;// Int variable for the index.
+        while (it.hasNext()) {//While the itherator (list) has another object do.
+            System.out.println(i + 1 + ". " + it.next().toString());//Prints the index i and the toString for the person.
+            i++;//Adds 1 to the index indicator.
         }
     }
 
@@ -44,18 +44,18 @@ public class ListPerson implements Serializable {
 
     public void findPerson() {
 
-        Iterator<Person> it = personList.iterator();
-        System.out.println("Input name for search: ");
-        String name = sc.next();
-        int i = 0;
+        Iterator<Person> it = personList.iterator();// Creates an iterator for personList
+        System.out.println("Input name for search: ");//Prints "Input name for search" to console
+        String name = sc.next();//User input using scanner for the name.
+        int i = 0;//An int to show the index of the object
 
-        while (it.hasNext()) {
+        while (it.hasNext()) {//While the list has another object do.
 
             Person p = it.next();
-            if (p.getName().equalsIgnoreCase(name)) {
-                System.out.println("Person found");
-                System.out.println(i + 1 + ". " + p.toString());
-                i++;
+            if (p.getName().equalsIgnoreCase(name)) {//If the name in the list is the same as searched do.
+                System.out.println("Person found");//Prints "Company found" to console.
+                System.out.println(i + 1 + ". " + p.toString());//Prints the index of the person found and the to string for the person.
+                i++;//Adds 1 to the index i.
             }
         }
     }
