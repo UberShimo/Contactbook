@@ -12,14 +12,17 @@ public class Menu {
     //initialized new scanner
     private static ListPerson listPerson = new ListPerson();
     private static ListCompany listCompany = new ListCompany();
+    //creates an object of ListPerson & ListCompany
 
     public void start() {
 
         int menuType = 0;
+        //the variable menutype has a different vale depending on what menu u are in
         int pos;
 
         listPerson.setPersonList(Load.loadPersons());
         listCompany.setCompanyList(Load.loadCompanies());
+        //Calling for the load method. Loads the saved lists
 
         while (true) {
             try {
@@ -32,20 +35,25 @@ public class Menu {
                         //using a scanner to select options in menu and then using the switch
                         case 1:
                             menuType = 1;
+                            //this calls for the person menu
                             break;
                         case 2:
                             menuType = 2;
+                            //this calls for the company menu
                             break;
                         case 3:
                             saveLists();
                             System.exit(0);
+                            //Calls for save method before u exit the program
                             break;
                         default:
                             System.out.println("Error! Make your choice between 1, 2 or 3!");
+                            //If ur input is not a number between 1-3 this messages i shown
                             break;
                     }
 
                 } else if (menuType == 1) {
+                    //if the input above is 1 u will go here
                     System.out.println("============ PERSON MENU ============");
                     System.out.println("\nMake your choice in the menu: ");
                     System.out.println("\n1. Create contact\n2. Remove contact\n3. Search contact\n4. View contact book\n" +
@@ -53,37 +61,48 @@ public class Menu {
                     switch (sc.nextInt()) {
                         case 1:
                             listPerson.addPerson();
+                            //calls for the addPerson method
                             break;
                         case 2:
                             System.out.println("Choose which index you want to remove: ");
                             listPerson.listPerson();
+                            //calls for method
                             pos = sc.nextInt();
                             listPerson.removePerson(pos);
+                            //the variabel pos is the position u want to remove
+                            //scanner takes the input from user
                             break;
                         case 3:
                             listPerson.findPerson();
+                            //calls for search method
                             break;
                         case 4:
                             listPerson.listPerson();
+                            //prints your contactbook
                             break;
                         case 5:
                             System.out.println("Choose which index you want to change: ");
                             listPerson.listPerson();
                             pos = sc.nextInt();
                             listPerson.changePersonInfo(pos);
+                            //this works like the code in case 2
                             break;
                         case 6:
                             saveLists();
+                            //calls for save method that saves your progress to lists
                             break;
                         case 7:
                             menuType = 0;
+                            //this takes u back to the main menu
                             break;
                         case 8:
                             saveLists();
                             System.exit(0);
+                            //before exit saves your progress
                             break;
                         default:
-                            System.out.println("Error! Only choose an option from the menu");
+                            System.out.println("Error! Choose an option between 1-8");
+                            //This triggers if u dont enter a number between 1-8
                             break;
                     }
                 } else {
@@ -126,12 +145,14 @@ public class Menu {
                         default:
                             System.out.println("Error! Only choose an option from the menu");
                             break;
+                            //this menu has the same functions as the person menu
                     }
                 }
             } catch (InputMismatchException e){
                 System.out.println("Error! Only numbers are valid as input!");
                 sc.next();
                 continue;
+                //Catch input exception like if u enter a letter not a number
             }
         }
     }
@@ -149,5 +170,6 @@ public class Menu {
             System.out.println("Error saving");
         }
         System.out.println("Saved changes");
+        //This method just calls for save method. Its a method here instead of repeating this code in the menu
     }
 }
