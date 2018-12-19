@@ -14,7 +14,8 @@ class SaveAndLoadTest {
     ArrayList<Company> cList = new ArrayList<>();
 
     @Test
-    void test(){
+    void saveAndLoadTest(){
+        //Simon test
         pList.add(new Person("Lars", "Bergqwist", 707338822, "CoolGuy@gmail.com"));
         cList.add(new Company("BigBois", 707331122, "BB@gaymail.cum"));
 

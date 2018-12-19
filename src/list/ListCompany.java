@@ -61,8 +61,8 @@ public class ListCompany implements Serializable {
 
     public void removeCompany(int position) {
 
-        companyList.remove(position - 1);
-        System.out.println("Company removed from list");
+        companyList.remove(position - 1);//Remove a company from company list.
+        System.out.println("Company removed from list");//Print "Company removed from list" in console.
         System.out.println();
     }
 
