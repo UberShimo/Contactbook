@@ -62,8 +62,8 @@ public class ListPerson implements Serializable {
 
     public void removePerson(int position) {
 
-        personList.remove(position - 1);
-        System.out.println("Person removed from list");
+        personList.remove(position - 1);////Remove a person from person list.
+        System.out.println("Person removed from list");//Print "Person removed from list" in console.
         System.out.println();
     }
 
