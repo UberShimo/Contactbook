@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 
 //The class Person is for creating Person objects
+//The class implements interface Contact for creating polymorphism
+//The class implements Serializable to be able to get saved to file
 public class Person implements Contact, Serializable {
 
     private String firstName;
@@ -16,59 +18,62 @@ public class Person implements Contact, Serializable {
     {
         if(firstName == null)
         {
-            throw new IllegalArgumentException("Invalid first-name");
+            throw new IllegalArgumentException("Invalid first-name");  //Throwing exception if firstName is invalid
         }
         else if(lastName == null)
         {
-            throw new IllegalArgumentException("Invalid last-name");
+            throw new IllegalArgumentException("Invalid last-name");  //Throwing exception if lastName is invalid
         }
         else
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.firstName = firstName;  //firstName is saved to the object
+            this.lastName = lastName;  //lastName is saved to the object
         }
     }
 
-    //Constructor for creating objects
+    //Constructor for creating Person objects with just phoneNumber
     public Person(String firstName, String lastName, Integer phoneNumber)
     {
-        this(firstName, lastName);
+        this(firstName, lastName);  //Constructor calling the first constructor for checking names
 
-        this.phoneNumber = getNumberFormat(phoneNumber);
+        this.phoneNumber = getNumberFormat(phoneNumber);  //phoneNumber is saved to the object after going through
+                                                          //the method getNumberFormat
     }
 
+    //Constructor for creating Person objects with just email
     public Person(String firstName, String lastName, String email)
     {
-        this(firstName, lastName);
+        this(firstName, lastName);  //Constructor calling the first constructor for checking names
 
         if(email == null || !email.contains("@")) {
 
-            throw new IllegalArgumentException("Invalid email");
+            throw new IllegalArgumentException("Invalid email");  //Throwing exception if email is invalid
         }
         else
         {
-            this.email = email;
+            this.email = email;  //email is saved to the object
         }
     }
 
+    //Constructor for creating Person objects with phone number and email
     public Person(String firstName, String lastName, Integer phoneNumber, String email)
     {
-        this(firstName, lastName, email);
+        this(firstName, lastName, email);  //Constructor calling the above constructor for checking email
 
-        this.phoneNumber = getNumberFormat(phoneNumber);
+        this.phoneNumber = getNumberFormat(phoneNumber);  //phoneNumber is saved to the object after going through
+                                                          //the method getNumberFormat
     }
 
-
-
+    //The method getNumberFormat is for turning phoneNumber to a String and give it the right format
     private String getNumberFormat(Integer phoneNumber)
     {
         if(phoneNumber == null)
         {
-            throw new NullPointerException("Phone-number error!");
+            throw new NullPointerException("Phone-number error!");  //Throwing exception if email is invalid
         }
         else {
-            DecimalFormat df = new DecimalFormat("0000000000");
-            return df.format(phoneNumber);
+            DecimalFormat df = new DecimalFormat("0000000000");  //Setting the wanted format of the phoneNumber
+            return df.format(phoneNumber);  //Giving phoneNumber the wanted format and returning it
         }
     }
 

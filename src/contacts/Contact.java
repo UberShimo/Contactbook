@@ -1,5 +1,6 @@
 package contacts;
 
+//Interface Contact is used for creating polymorphism with Company and Person objects
 public interface Contact {
 
     String getName();
